@@ -1,0 +1,14 @@
+{
+  "name": "back_end",
+  "version": "1.0.0",
+  "description": "Server side of Flipkart_clone app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mern"
+  ],
+  "author": "Abhik Nayak",
+  "license": "ISC"
+}
