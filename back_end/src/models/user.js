@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import bcrypt from "bcrypt";
 
 const userSchema = new mongoose.Schema({
     firstName: {
@@ -53,4 +54,5 @@ userSchema.methods = {
     }
 }
 
-export default mongoose.model('User',userSchema);
+const User = mongoose.model('User',userSchema);
+export default User;
