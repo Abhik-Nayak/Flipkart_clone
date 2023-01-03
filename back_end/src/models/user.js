@@ -1,5 +1,7 @@
-import mongoose from "mongoose";
-import bcrypt from "bcrypt";
+// import mongoose from "mongoose";
+// import bcrypt from "bcrypt";
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const userSchema = new mongoose.Schema({
     firstName: {
@@ -48,11 +50,17 @@ userSchema.virtual('password').set(function(password){
     this.hash_password = bcrypt.hashSync(password, 10);
 });
 
+userSchema.virtual('fullName')
+.get(function(){
+    return `${this.firstName} ${this.lastName}`
+});
+
 userSchema.methods = {
     authenticate: function(password){
-        return bcrypt.compare(password, this.hash_password)
+        return bcrypt.compareSync(password, this.hash_password)
     }
 }
 
 const User = mongoose.model('User',userSchema);
-export default User;
+// export default User;
+module.exports = User;
