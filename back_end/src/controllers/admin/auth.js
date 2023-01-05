@@ -1,5 +1,6 @@
-const User = require("../models/user");
+const User = require("../../models/user");
 const jwt = require("jsonwebtoken");
+
 
 exports.getData = async (req, res) => {
     try {
@@ -29,7 +30,8 @@ exports.signup = (req, res) => {
                 lastName,
                 email,
                 password,
-                username: Math.random().toString()
+                username: Math.random().toString(),
+                role: "admin"
             });
 
             _user.save((error, data) => {
@@ -79,12 +81,9 @@ exports.signin = (req, res) => {
         })
 }
 
-exports.requireSignin = (req, res, next)=> {
-    // const token = req.headers.authorization;
-    // console.log(token);
-    const token =req.headers.authorization.split(" ")[1];
-    console.log(token);
-    const user = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = user;
-    next();
-}
+// exports.requireSignin = (req, res, next)=> {
+//     const token =req.headers.authorization.split(" ")[1];
+//     const user = jwt.verify(token, process.env.JWT_SECRET);
+//     req.user = user;
+//     next();
+// }
