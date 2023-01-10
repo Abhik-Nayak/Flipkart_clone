@@ -1,9 +1,15 @@
 import React from 'react'
 import Header from '../Header/index';
+import { Container } from 'react-bootstrap';
 
-const Layout = () => {
+const Layout = (props) => {
   return (
-    <div><Header/></div>
+    <>
+      <Header />
+      <Container>
+        {props.children}
+      </Container>
+    </>
   )
 }
 

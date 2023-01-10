@@ -1,12 +1,13 @@
 import React from 'react'
 import { Jumbotron, Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
+import { NavLink, Link } from 'react-router-dom';
 
 const Header = () => {
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">Flip-kart</Navbar.Brand>
+                    <Link to="/" className='navbar-brand'>Admin Dashboard</Link>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
@@ -19,10 +20,12 @@ const Header = () => {
                     </NavDropdown> */}
                         </Nav>
                         <Nav>
-                            {/* <Nav.Link href="#deets">More deets</Nav.Link> */}
-                            <Nav.Link eventKey={2} href="#memes">
-                                Login
-                            </Nav.Link>
+                            <li className="nav-item">
+                                <NavLink to="Signin" className="nav-link">Signin</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink to="Signup" className="nav-link">Signup</NavLink>
+                            </li>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
