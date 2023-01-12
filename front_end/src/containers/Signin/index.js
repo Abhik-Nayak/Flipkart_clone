@@ -1,23 +1,40 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import Layout from '../../components/Layout';
-import {Container , Form, Row, Col, Button} from "react-bootstrap";
+import Input from '../../components/UI/Input';
+import { Container, Form, Row, Col, Button } from "react-bootstrap";
 
 
 const Signin = () => {
+  const [email,setEmail] = useState("");
+  
   return (
     <Layout>
       <Container>
-        <Row>
-          <Col>
+        <Row style={{ marginTop: "50px" }}>
+          <Col md={{ span: 6, offset: 3 }}>
+            <Form>
+              <Input placeholder="Enter your email address"
+                label="Enter your email address"
+                type="email"
+                value={email}
+                onChange={(e) => { setEmail(e.target.value)}}
+              />
+
+              <Input placeholder="Enter Password "
+                label="Password"
+                type="password"
+                value=""
+                onChange={() => { }}
+              />
+
+              <Form.Group controlId='formBasicCheckbox'>
+                <Form.Check type='checkbox' label="Check me out" />
+              </Form.Group>
+
+              <Button variant='primary' type='submit'>Submit</Button>
+            </Form>
           </Col>
         </Row>
-        <Form>
-          <Form.Group controlId='formBasicEmail'>
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type='email' placeholder="enter your email address"/>
-            <Form.Text className='text-muted'> We will never share your email with others.</Form.Text>
-          </Form.Group>
-        </Form>
       </Container>
     </Layout>
   )

@@ -5,11 +5,11 @@ import Layout from '../../components/Layout';
 const Home = () => {
     return (
         <div>
-            <Layout>
+            <Layout/>
               <Jumbotron className='text-center'>
                 <h1>Welcome to Admin Dashboard</h1>
               </Jumbotron>
-            </Layout>
+            {/* </Layout> */}
         </div>
     )
 }
