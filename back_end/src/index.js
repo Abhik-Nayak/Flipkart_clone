@@ -1,6 +1,5 @@
 const express = require("express");
 const env = require("dotenv");
-const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const app = express();
 
@@ -8,6 +7,7 @@ const app = express();
 // import authRoutes from "./routes/user.js";
 const authRoutes = require("./routes/auth");
 const adminRoutes = require("./routes/admin/auth");
+const categoryRoutes = require("./routes/category");
 
 // environment  variable or you can say constants
 env.config();
@@ -26,10 +26,11 @@ mongoose.connect(
 })
 
 // bodyparser middleware
-app.use(express.json(bodyParser));
+app.use(express.json());
 app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}`);
 });
 
 app.use('/api', authRoutes);
 app.use('/api', adminRoutes);
+app.use('/api', categoryRoutes);
