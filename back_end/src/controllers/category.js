@@ -11,8 +11,6 @@ exports.addCategory = (req, res) => {
         if (req.body.parentId) {
             categoryObj.parentId = req.body.parentId;
         }
-
-        console.log(categoryObj);
         const cat = new Category(categoryObj);
         cat.save((error, category) => {
             if (error) return res.status(400).json({ error });
