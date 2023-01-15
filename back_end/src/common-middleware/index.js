@@ -1,3 +1,5 @@
+const jwt = require("jsonwebtoken");
+
 exports.requireSignin = (req, res, next) => {
     // const token = req.headers.authorization;
     // console.log(token);
@@ -6,17 +8,24 @@ exports.requireSignin = (req, res, next) => {
         console.log(token);
         const user = jwt.verify(token, process.env.JWT_SECRET);
         req.user = user;
-        next();
     }
-    return res.status(400).json({message: 'Authorization required'})
+    else {
+        return res.status(400).json({ message: 'Authorization required' })
+    }
+    next();
 }
 
 exports.userMiddleware = (req, res, next) => {
+    if (req.user.role !== 'user') {
+        return res.status(400).json({ message: "User Access denied" })
+    }
+    next();
 
 }
 
 exports.adminMiddleware = (req, res, next) => {
-    if (req.user.role != 'admin') {
+    console.log(req.user.role);
+    if (req.user.role !== 'admin') {
         return res.status(400).json({ message: "Access denied" })
     }
     next();
