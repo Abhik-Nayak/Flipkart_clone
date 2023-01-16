@@ -68,29 +68,29 @@ const http = require('http');
 // environment  variable or you can say constants
 env.config();
 
-app.use(cors({
-    origin: "*",
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-}))
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(cors({
+//     origin: "*",
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+// }))
+// app.use(bodyParser.urlencoded({ extended: true }));
 
-
-
-app.use(express.json())
 
 var connection = typeorm.createConnection({
-    "type": "mongodb",
-    "host": "localhost",
-    "port": 27017,
-    "database": "flipkart_clone_db",
-    "synchronize": false,
-    "logging": false,
-    // "type": "postgres",
+    // "type": "mongodb",
     // "host": "localhost",
-    // "port": 5432,
-    // "username": "postgres",
-    // "password": "admin",
-    // "database": "postgres",
+    // "port": 27017,
+    // "database": "flipkart_clone_db",
+    // "synchronize": false,
+    // "logging": false,
+    "type": "mongodb",
+    "url": "mongodb+srv://abhiknayak:Abhik@1998@cluster0.8iiqxqw.mongodb.net/?retryWrites=true&w=majority",
+    "useNewUrlParser": true,
+    "useUnifiedTopology": true,
+    "useCreateIndex": true,
+    "synchronize": true,
+    "logging": true,
+    // "entities": ["src/entity/*.*"]
+    
     // "synchronize": false,
     // "logging": false,
     // entities: [
@@ -98,12 +98,17 @@ var connection = typeorm.createConnection({
     // ]
 }).then(function (connection) {
     console.log("connected");
-    const server = http.createServer(app);
-    server.listen(5000);
+    // const server = http.createServer(app);
+    // server.listen(5000);
 
 }).catch(function (error) {
     console.log("Error: ", error)
     return;
+});
+
+app.use(express.json());
+app.listen(process.env.PORT, () => {
+    console.log(`Server is running on port ${process.env.PORT}`);
 });
 
 module.exports = connection
