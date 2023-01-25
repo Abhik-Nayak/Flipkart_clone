@@ -8,6 +8,7 @@ const app = express();
 const authRoutes = require("./routes/auth");
 const adminRoutes = require("./routes/admin/auth");
 const categoryRoutes = require("./routes/category");
+const productRoutes = require("./routes/category");
 
 // environment  variable or you can say constants
 env.config();
@@ -34,3 +35,4 @@ app.listen(process.env.PORT, () => {
 app.use('/api', authRoutes);
 app.use('/api', adminRoutes);
 app.use('/api', categoryRoutes);
+app.use('/api', productRoutes);
