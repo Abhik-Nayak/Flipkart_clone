@@ -26,6 +26,7 @@ mongoose.connect(
     console.log("Database connected");
 })
 
+
 // bodyparser middleware
 app.use(express.json());
 app.listen(process.env.PORT, () => {
