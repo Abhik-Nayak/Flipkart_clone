@@ -29,7 +29,6 @@ exports.addCategory = (req, res) => {
             name: req.body.name,
             slug: slugify(req.body.name)
         }
-        console.log(req.body.parentId);
         if (req.body.parentId) {
             categoryObj.parentId = req.body.parentId;
         }

@@ -12,7 +12,6 @@ exports.getData = async (req, res) => {
 }
 
 exports.signup = (req, res) => {
-    console.log(req.body);
     User.findOne({ email: req.body.email })
         .exec((error, user) => {
             if (user) return res.status(400).json({
