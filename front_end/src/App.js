@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from './components/Layout';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Home from './containers/Home';
 import Signin from './containers/Signin';
 import Signup from './containers/Signup';
@@ -8,13 +8,13 @@ import Signup from './containers/Signup';
 const App = () => {
   return (
     <div className='App'>
-      <BrowserRouter>
+      <Router>
         <Switch>
           <Route exact path="/" component={Home}></Route>
           <Route exact path="/Signup" component={Signup}></Route>
           <Route exact path="/Signin" component={Signin}></Route>
         </Switch>
-      </BrowserRouter>
+      </Router>
     </div>
   )
 }
