@@ -25,20 +25,21 @@ function createCategories(categories, parentId = null){
 }
 exports.addCategory = (req, res) => {
     try {
-        const categoryObj = {
-            name: req.body.name,
-            slug: slugify(req.body.name)
-        }
-        if (req.body.parentId) {
-            categoryObj.parentId = req.body.parentId;
-        }
-        const cat = new Category(categoryObj);
-        cat.save((error, category) => {
-            if (error) return res.status(400).json({ error });
-            if (category) {
-                return res.status(200).json({ category });
-            }
-        });
+        console.log(req.body);
+        // const categoryObj = {
+        //     name: req.body.name,
+        //     slug: slugify(req.body.name)
+        // }
+        // if (req.body.parentId) {
+        //     categoryObj.parentId = req.body.parentId;
+        // }
+        // const cat = new Category(categoryObj);
+        // cat.save((error, category) => {
+        //     if (error) return res.status(400).json({ error });
+        //     if (category) {
+        //         return res.status(200).json({ category });
+        //     }
+        // });
     } catch (error) {
         console.log(error);
     }
