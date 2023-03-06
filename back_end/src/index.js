@@ -15,17 +15,25 @@ const cartRoutes = require("./routes/cart");
 env.config();
 
 // mongodb connection 
-mongoose.connect(
-    `mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@cluster0.8iiqxqw.mongodb.net/${process.env.MONGO_DB_DATBASE}?retryWrites=true&w=majority`,
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useCreateIndex: true
-        // user
-    }
-).then(() =>{
-    console.log("Database connected");
-})
+// mongoose.connect(
+//     `mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@cluster0.8iiqxqw.mongodb.net/${process.env.MONGO_DB_DATBASE}?retryWrites=true&w=majority`,
+//     {
+//         useNewUrlParser: true,
+//         useUnifiedTopology: true,
+//         useCreateIndex: true
+//         // user
+//     }
+// ).then(() =>{
+//     console.log("Database connected");
+// })
+
+mongoose.connect("mongodb://localhost:27017/flipkrt_clone_db",{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    family: 4,
+}).then(()=>{
+    console.log("connected")
+}).catch(err => console.log(err));
 
 
 // bodyparser middleware
