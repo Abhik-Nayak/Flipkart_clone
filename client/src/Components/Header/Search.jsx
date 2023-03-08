@@ -24,7 +24,7 @@ const SearchIconWrapper = styled(Box)`
   margin-left: auto;
   padding: 5px;
   display: flex;
-  color: blue;
+  color: #2874f0;
 `;
 const Search = () => {
 

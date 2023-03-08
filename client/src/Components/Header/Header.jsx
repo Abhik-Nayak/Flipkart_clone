@@ -16,14 +16,14 @@ const StyledHeader = styled(AppBar)`
     height: 55px,
 `
 const Linksection = styled(Link)`
-margin-left: 12%;
-line-height: 0;
-color: #ffffff;
-text-decoration: none;
+    margin-left: 12%;
+    line-height: 0;
+    color: #ffffff;
+    text-decoration: none;
 `
 const Subheading = styled(Typography)`
-font-size: 10px;
-font-style: italic;
+    font-size: 10px;
+    font-style: italic;
 `
 const MenuButton = styled(IconButton)(({ theme }) => ({
     display: 'none',
@@ -38,12 +38,9 @@ const Plusimg = styled('img')({
     marginLeft: 4
 });
 
-const CustomButtonWrapper = styled('span')(({ theme}) =>({
-    margin: '0 5% 0 auto',
-    [theme.breakpoints.down('sm')]: {
-        display : 'none'
-    }
-}));
+const CustomButtonWrapper = styled(Box)`
+    margin: 0 5% 0 10px;
+`;
 const Header = () => {
 
     return (
@@ -65,7 +62,7 @@ const Header = () => {
                 </Linksection>
                 <Search />
                 <CustomButtonWrapper>
-                    <CustomButtons/>
+                    <CustomButtons />
                 </CustomButtonWrapper>
             </Toolbar>
         </StyledHeader>
