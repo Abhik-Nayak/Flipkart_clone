@@ -15,7 +15,7 @@ const StyledHeader = styled(AppBar)`
     background: #2874f0;
     height: 55px,
 `
-const Linksection = styled(Link)`
+const Linksection = styled(Box)`
     margin-left: 12%;
     line-height: 0;
     color: #ffffff;
@@ -49,7 +49,7 @@ const Header = () => {
                 <MenuButton color="inherit" onClick={""}>
                     <Menu />
                 </MenuButton>
-                <Linksection to="/">
+                <Linksection>
                     <img src={flipkartLogo} style={{ width: 75 }} alt="flipkartLogo" />
                     <Box component="span" style={{ display: 'flex' }} >
                         <Subheading>Explore&nbsp;

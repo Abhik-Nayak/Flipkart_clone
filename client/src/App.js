@@ -6,12 +6,10 @@ import Home from './Components/Home/Home';
 const App = () => {
   return (
     <>
-      <div>
         <Header />
-        <Box style={{marginTop: 54}}>
-        <Home />
+        <Box style={{ marginTop: 54 }}>
+          <Home />
         </Box>
-      </div>
     </>
   )
 }

@@ -40,9 +40,9 @@ const CustomButtons = () => {
         <Typography style ={{ marginTop : 3}}>More</Typography>
 
         <Container >
-            {/* <Badge badgeContent={3} color="error">  */}
+            <Badge badgeContent={3} color="error"> 
                 <ShoppingCart/>
-            {/* </Badge> */}
+            </Badge>
             <Typography>Cart</Typography>
         </Container>
     </Wrapper>
