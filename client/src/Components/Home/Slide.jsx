@@ -1,7 +1,4 @@
-
-
 import { Button, Divider, Box, Typography, styled } from '@mui/material';
-
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
 import Countdown from 'react-countdown';

@@ -23,12 +23,12 @@ env.config();
 //     console.log("Database connected");
 // })
 
-mongoose.connect("mongodb://localhost:27017/flipkrt_clone_db",{
+mongoose.connect("mongodb://localhost:27017/flipkrt_clone_db", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     family: 4,
-}).then(()=>{
-    console.log("connected")
+}).then(() => {
+    console.log("connected");
 }).catch(err => console.log(err));
 
 

@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
 
 import Profile from './Profile';
-// import LoginDialog from '../Login/LoginDialog';
+import LoginDialog from '../Login/LoginDialog';
 
 const Container = styled(Box)`
     display: flex;
@@ -33,9 +33,14 @@ const LoginButton = styled(Button)`
     height:32px;
 `
 const CustomButtons = () => {
+    const [open,setOpen] = useState(false);
+
+    const openDialog =() => {
+        setOpen(true);
+    }
   return (
     <Wrapper>
-        <LoginButton variant="contained">Login</LoginButton>
+        <LoginButton variant="contained" onClick={e=>openDialog()}>Login</LoginButton>
         <Typography style ={{ marginTop : 3, width: 135}}>Become a Seller</Typography>
         <Typography style ={{ marginTop : 3}}>More</Typography>
 
@@ -45,11 +50,12 @@ const CustomButtons = () => {
             </Badge>
             <Typography>Cart</Typography>
         </Container>
+        <LoginDialog open={open} setOpen={setOpen}/>
     </Wrapper>
   )
 }
 
-export default CustomButtons
+export default CustomButtons;
 // const Container = styled(Link)(({ theme }) => ({
 //     display: 'flex',
 //     [theme.breakpoints.down('sm')]: {
