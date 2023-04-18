@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 const DefaultData = require("./default.js")
 // routes
-// import authRoutes from "./routes/user.js";
+const userRoutes = require("./routes/auth");
 
 
 // environment  variable or you can say constants
@@ -38,4 +38,5 @@ app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}`);
 });
 
-DefaultData();
+// DefaultData();
+app.use("/api",userRoutes);

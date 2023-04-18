@@ -93,13 +93,21 @@ const LoginDialog = ({ open, setOpen }) => {
     const onInputChange = (e) => {
         setSignup({ ...signup, [e.target.name]: e.target.value });
     }
+    const loginUser = async()=> {
+        
+    }
+    const signupUser = async() => {
+        let response = true;
+        if(!response) return;
+        handleClose();
+    }
     const toggleSignup =() => {
         toggleAccount(accountInitialValues.signup);
     }
     const handleClose = () => {
         setOpen(false);
         toggleAccount(accountInitialValues.login);
-}
+    }
   return (
     <Dialog open={open} onClose={handleClose} PaperProps={{ sx: { maxWidth: 'unset' } }}>
         <Component>
@@ -114,7 +122,7 @@ const LoginDialog = ({ open, setOpen }) => {
                     <TextField variant="standard" onChange={(e) => onValueChange(e)} name='username' label='Enter Email/Mobile number' />
                     <TextField variant="standard" onChange={(e) => onValueChange(e)} name='password' label='Enter Password' />
                     <Text>By Continuing, you agree to Flipkart's Term of Use and Privacy Policy.</Text>
-                    <LoginButton>Login</LoginButton>
+                    <LoginButton onClick={() => loginUser()}>Login</LoginButton>
                     <Text style={{textAlign:'center'}}>OR</Text>
                     <RequestOTP>Request OTP</RequestOTP>
                     <CreateAccount onClick={() => toggleSignup()}>New to Flipkart? Create an account.</CreateAccount>
@@ -126,7 +134,7 @@ const LoginDialog = ({ open, setOpen }) => {
                     <TextField variant="standard" onChange={(e) => onInputChange(e)} name='email' label='Enter Email' />
                     <TextField variant="standard" onChange={(e) => onInputChange(e)} name='password' label='Enter Password' />
                     <TextField variant="standard" onChange={(e) => onInputChange(e)} name='phone' label='Enter Phone' />
-                    <LoginButton onClick={() => ""} >Continue</LoginButton>
+                    <LoginButton onClick={() => signupUser()} >Continue</LoginButton>
                 </Wrapper>
 }
             </Box>
