@@ -3,15 +3,15 @@ import { Dialog, DialogContent, TextField, Box, Button, Typography, styled } fro
 
 
 const Component = styled(Box)`
-     height: 70vh;
-     width: 90vh;
+     height: 90vh;
+     width: 110vh;
      padding: 0;
      padding-top: 0;
 `
 
 const Image = styled(Box)`
     background: #2874f0 url(https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/login_img_c4a81e.png) center 85% no-repeat;
-    height: 83%;
+    // height: 83%;
     width:30%;
     padding: 45px 35px;
     & > p, & > h5 {
@@ -94,7 +94,7 @@ const LoginDialog = ({ open, setOpen }) => {
         setSignup({ ...signup, [e.target.name]: e.target.value });
     }
     const loginUser = async()=> {
-        
+
     }
     const signupUser = async() => {
         let response = true;

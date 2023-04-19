@@ -1,16 +1,18 @@
-import { createContext, useState } from 'react';
+import  {createContext, useState} from "react";
 
-export const LoginContext = createContext(null);
+// import { createContext, useState } from 'react';
 
-const ContextProvider = ({children}) => {
+// export const LoginContext = createContext(null);
 
-    const [ account, setAccount ] = useState('');
+// const ContextProvider = ({children}) => {
+
+//     const [ account, setAccount ] = useState('');
     
-    return (
-        <LoginContext.Provider value={{ account, setAccount }}>
-            {children}
-        </LoginContext.Provider>
-    )
-}
+//     return (
+//         <LoginContext.Provider value={{ account, setAccount }}>
+//             {children}
+//         </LoginContext.Provider>
+//     )
+// }
 
-export default ContextProvider;
+// export default ContextProvider;
