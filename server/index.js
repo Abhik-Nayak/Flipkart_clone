@@ -1,6 +1,7 @@
 const express = require("express");
 const env = require("dotenv");
 const mongoose = require("mongoose");
+const cors = require('cors');
 const app = express();
 const DefaultData = require("./default.js")
 // routes
@@ -23,7 +24,7 @@ env.config();
 //     console.log("Database connected");
 // })
 
-mongoose.connect("mongodb://localhost:27017/flipkrt_clone_db", {
+mongoose.connect("mongodb://localhost:27017/flipkrt_clone_db_1", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     family: 4,
@@ -31,7 +32,7 @@ mongoose.connect("mongodb://localhost:27017/flipkrt_clone_db", {
     console.log("connected");
 }).catch(err => console.log(err));
 
-
+app.use(cors());
 // bodyparser middleware
 app.use(express.json());
 app.listen(process.env.PORT, () => {

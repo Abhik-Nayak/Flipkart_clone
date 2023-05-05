@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Dialog, DialogContent, TextField, Box, Button, Typography, styled } from '@mui/material';
-
+import { authenticateSignup } from '../../service/api';
 
 const Component = styled(Box)`
      height: 90vh;
@@ -91,15 +91,20 @@ const LoginDialog = ({ open, setOpen }) => {
         setLogin({ ...login, [e.target.name]: e.target.value });
     }
     const onInputChange = (e) => {
+        console.log(e.target.name);
         setSignup({ ...signup, [e.target.name]: e.target.value });
     }
     const loginUser = async()=> {
 
     }
     const signupUser = async() => {
-        let response = true;
-        if(!response) return;
-        handleClose();
+        console.log(signup);
+
+        let response = await authenticateSignup(signup);
+        console.log(response);
+        // let response = true;
+        // if(!response) return;
+        // handleClose();
     }
     const toggleSignup =() => {
         toggleAccount(accountInitialValues.signup);
